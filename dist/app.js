@@ -10,6 +10,6 @@ app.get("/", (req, res) => {
     res.send("Hello World!");
 });
 app.listen(port, () => {
-    return console.log(`Express is listening at http://localhost:${port}`);
+    return console.log(`Server running. Use our API on port:${port}`);
 });
 //# sourceMappingURL=app.js.map
