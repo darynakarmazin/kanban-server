@@ -1,20 +1,23 @@
 import { Schema, model } from "mongoose";
 
+const boardSchema = new Schema({
+  title: { type: String, required: true },
+  items: { type: Array, default: [] },
+});
+
 const kanbanSchema = new Schema(
   {
     id: { type: String, required: true },
     name: { type: String, required: true },
-    boards: [
-      {
-        title: { type: String, required: true },
-        items: [
-          {
-            title: { type: String, required: true },
-            description: { type: String },
-          },
-        ],
-      },
-    ],
+    boards: {
+      type: [boardSchema],
+      required: true,
+      default: [
+        { title: "ToDo", items: [] },
+        { title: "In Progress", items: [] },
+        { title: "Done", items: [] },
+      ],
+    },
   },
   { versionKey: false, timestamps: true }
 );
