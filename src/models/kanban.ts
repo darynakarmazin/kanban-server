@@ -7,7 +7,7 @@ const boardSchema = new Schema({
 
 const kanbanSchema = new Schema(
   {
-    id: { type: String, required: true },
+    hashId: { type: String, required: true },
     name: { type: String, required: true },
     boards: {
       type: [boardSchema],
